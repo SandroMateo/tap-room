@@ -7,7 +7,7 @@ import { Keg } from './keg.model';
     <h1>New Keg</h1>
     <div>
       <label>Enter Keg Name:</label>
-      <input #newDescription>
+      <input #newName>
     </div>
     <div>
       <label>Enter Brand:</label>
@@ -21,7 +21,7 @@ import { Keg } from './keg.model';
       <label>Enter Alcohol Content:
       <input type="number" #newAlcohol>%</label>
       <button (click)="
-      addClicked(newName.value, newBrand.value, newPrice.value, newAlcohol);
+      addClicked(newName.value, newBrand.value, newPrice.value, newAlcohol.value);
     ">Add</button>
     </div>
   `
