@@ -6,19 +6,18 @@ import {Keg} from './keg.model';
   pure: true
 })
 export class InventoryPipe implements PipeTransform {
-  transform(input: Keg[], info) {
-    var desiredInventory = info;
+  transform(input: Keg[], desiredInventory, desiredType) {
     var output: Keg[] = [];
     if(desiredInventory === "low") {
       for(var i = 0; i < input.length; i++) {
-        if(input[i].pints < 10) {
+        if(input[i].pints < 10 && (input[i].type === desiredType || desiredType === "all")) {
           output.push(input[i]);
         }
       }
       return output;
     } else if (desiredInventory === "normal") {
       for(var i=0; i < input.length; i++) {
-        if(input[i].pints >= 10) {
+        if(input[i].pints >= 10 && (input[i].type === desiredType  || desiredType === "all")) {
           output.push(input[i]);
         }
       }

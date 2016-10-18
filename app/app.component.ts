@@ -8,6 +8,7 @@ import { Keg } from './keg.model';
     <h1>Tap Room</h1>
     <keg-list
       [childKegList]="allKegs"
+      [childTypeList]="allTypes"
       (clickSender)="showDetails($event)"
     ></keg-list>
     <hr>
@@ -20,11 +21,13 @@ import { Keg } from './keg.model';
 
 export class AppComponent {
   public allKegs: Keg[] = [
-    new Keg("Pliny the Elder", "Russian River Brewing", 7, 8),
-    new Keg("Mowgli", "Caldera", 8, 10),
-    new Keg("Pee Water", "Budweiser", 2, 2),
-    new Keg("Ginja Ninja", "2Towns", 4, 6)
+    new Keg("Pliny the Elder", "Russian River Brewing", "IPA", 7, 8),
+    new Keg("Mowgli", "Caldera", "Stout", 8, 10),
+    new Keg("Pee Water", "Budweiser", "Lager", 2, 2),
+    new Keg("Ginja Ninja", "2Towns", "Cider", 4, 6)
   ];
+
+  public allTypes: string[] = ["IPA", "Stout", "Lager", "Cider"];
 
   selectedKeg: Keg = null;
   showDetails(clickedKeg: Keg) {
@@ -37,5 +40,12 @@ export class AppComponent {
 
   addKeg(newKegFromChild: Keg) {
     this.allKegs.push(newKegFromChild);
+    this.addType(newKegFromChild.type);
+  }
+
+  addType(typeFromChild: string) {
+    if(this.allTypes.indexOf(typeFromChild) === -1) {
+      this.allTypes.push(typeFromChild);
+    }
   }
 }
