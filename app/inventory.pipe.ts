@@ -3,7 +3,7 @@ import {Keg} from './keg.model';
 
 @Pipe({
   name: "inventory",
-  pure: true
+  pure: false
 })
 export class InventoryPipe implements PipeTransform {
   transform(input: Keg[], desiredInventory, desiredType) {
