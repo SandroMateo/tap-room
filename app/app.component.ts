@@ -15,6 +15,10 @@ import { Keg } from './keg.model';
     <new-keg
       (newKegSender)="addKeg($event)"
     ></new-keg>
+    <keg-edit
+      [childSelectedKeg] = "selectedKeg"
+      (doneClickedSender)="finishedEditing()"
+    ></keg-edit>
   </div>
   `
 })
@@ -40,12 +44,9 @@ export class AppComponent {
 
   addKeg(newKegFromChild: Keg) {
     this.allKegs.push(newKegFromChild);
-    this.addType(newKegFromChild.type);
-  }
-
-  addType(typeFromChild: string) {
-    if(this.allTypes.indexOf(typeFromChild) === -1) {
-      this.allTypes.push(typeFromChild);
+    if(this.allTypes.indexOf(newKegFromChild.type) === -1) {
+      this.allTypes.push(newKegFromChild.type);
     }
+    console.log(this.allKegs);
   }
 }

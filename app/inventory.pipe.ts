@@ -8,7 +8,14 @@ import {Keg} from './keg.model';
 export class InventoryPipe implements PipeTransform {
   transform(input: Keg[], desiredInventory, desiredType) {
     var output: Keg[] = [];
-    if(desiredInventory === "low") {
+    if(desiredInventory === "all"){
+      for(var i=0; i < input.length; i++) {
+        if((input[i].type === desiredType  || desiredType === "all")) {
+          output.push(input[i]);
+        }
+      }
+      return output;
+    } else if(desiredInventory === "low") {
       for(var i = 0; i < input.length; i++) {
         if(input[i].pints < 10 && (input[i].type === desiredType || desiredType === "all")) {
           output.push(input[i]);
@@ -22,8 +29,13 @@ export class InventoryPipe implements PipeTransform {
         }
       }
       return output;
-    } else {
-      return input;
+    // } else if(desiredInventory === "all"){
+    //   for(var i=0; i < input.length; i++) {
+    //     if((input[i].type === desiredType  || desiredType === "all")) {
+    //       output.push(input[i]);
+    //     }
+    //   }
+      // return output;
     }
   }
 }

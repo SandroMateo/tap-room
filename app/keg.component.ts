@@ -7,6 +7,7 @@ import { Keg } from './keg.model';
   template: `
     <div>
       <h5 [style.color]="getStyle(keg)">{{ keg.name }}</h5>
+      <p>Pours left: {{ keg.pints }}</p>
     </div>
   `
 })

@@ -26,7 +26,12 @@ import { Keg } from './keg.model';
       <input type="number" #newAlcohol>%</label>
       <button (click)="
       addClicked(newName.value, newBrand.value, newType.value, newPrice.value, newAlcohol.value);
-    ">Add</button>
+      newName.value = '';
+      newBrand.value = '';
+      newType.value = '';
+      newPrice.value = '';
+      newAlcohol.value = '';
+    " class="btn btn-primary">Add</button>
     </div>
   `
 })

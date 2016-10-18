@@ -30,7 +30,8 @@ import { KegComponent } from './keg.component';
       <keg-display
         [keg] = "keg"
       ></keg-display>
-      <button (click)="editDone(keg)">Edit</button>
+      <button class="btn btn-danger" (click)="editDone(keg)"><span class="glyphicon glyphicon-pencil"></span></button>
+      <button class="btn btn-success" (click)="sellPint(keg)"><span class="glyphicon glyphicon-pencil"></span></button>
     </div>
   `
 })
@@ -44,6 +45,10 @@ export class KegListComponent {
 
   editDone(kegToEdit: Keg) {
     this.clickSender.emit(kegToEdit);
+  }
+
+  sellPint(kegToSell: Keg) {
+    kegToSell.pints--;
   }
 
   inventoryChange(inventoryFromMenu) {
