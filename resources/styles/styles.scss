@@ -4,7 +4,7 @@ h1, h2, h3 {
 
 .jumbo-wells {
   height: 40%;
-  background: rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.65);
 }
 
 .jumbotron {
@@ -13,9 +13,10 @@ h1, h2, h3 {
 }
 
 .listedBeers {
-  background-color: rgba(170, 180, 190, 0.6);
+  background-color: rgba(255, 255, 255, 0.65);
 }
 
 body {
-  background: linear-gradient(0deg, white, indianred);
+  background-image: url("../../resources/img/wood-panel.jpeg");
+  background-size: center;
 }
