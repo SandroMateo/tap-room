@@ -5,7 +5,7 @@ import { Keg } from './keg.model';
   selector: 'keg-edit',
   template: `
     <div *ngIf="childSelectedKeg">
-      <h1>Edit Keg</h1>
+      <h2>Edit Keg</h2>
       <div>
         <label>Enter Keg Name:</label>
         <input [(ngModel)]="childSelectedKeg.name">
@@ -25,8 +25,9 @@ import { Keg } from './keg.model';
       <div>
         <label>Enter Alcohol Content:
         <input type="number" [(ngModel)]="childSelectedKeg.alcohol">%</label>
-        <button (click)="replenishKeg(childSelectedKeg)" class="btn btn-success">Replenish</button>
-        <button (click)="doneClicked()" class="btn btn-warning">Done</button>
+        <br><br>
+        <button (click)="replenishKeg(childSelectedKeg)" class="btn btn-success pull-right">Replenish</button>
+        <button (click)="doneClicked()" class="btn btn-warning pull-right">Done</button>
       </div>
     </div>
   `
@@ -41,6 +42,6 @@ export class KegEditComponent {
   }
 
   replenishKeg(selectedKeg: Keg) {
-    selectedKeg.pints = 124;
+    selectedKeg.pints = 24;
   }
 }

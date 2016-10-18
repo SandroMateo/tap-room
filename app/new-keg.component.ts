@@ -4,35 +4,36 @@ import { Keg } from './keg.model';
 @Component({
   selector: 'new-keg',
   template: `
-    <h1>New Keg</h1>
-    <div>
-      <label>Enter Keg Name:</label>
-      <input #newName>
-    </div>
-    <div>
-      <label>Enter Brand:</label>
-      <input #newBrand>
-    </div>
-    <div>
-      <label>Enter Type:</label>
-      <input #newType placeholder="IPA, Stout, Amber...">
-    </div>
-    <div>
-      <label>Enter Price:</label>
-      <input type="number" #newPrice>
-    </div>
-    <div>
-      <label>Enter Alcohol Content:
-      <input type="number" #newAlcohol>%</label>
-      <button (click)="
-      addClicked(newName.value, newBrand.value, newType.value, newPrice.value, newAlcohol.value);
-      newName.value = '';
-      newBrand.value = '';
-      newType.value = '';
-      newPrice.value = '';
-      newAlcohol.value = '';
-    " class="btn btn-primary">Add</button>
-    </div>
+    <h2>New Keg</h2>
+      <div>
+        <label>Enter Keg Name:</label>
+        <input class="form-control" #newName>
+      </div>
+      <div>
+        <label>Enter Brand:</label>
+        <input  class="form-control" #newBrand>
+      </div>
+      <div>
+        <label>Enter Type:</label>
+        <input  class="form-control" #newType placeholder="IPA, Stout, Amber...">
+      </div>
+      <div>
+        <label>Enter Price:</label>
+        <input  class="form-control" type="number" #newPrice>
+      </div>
+      <div>
+        <label>Enter Alcohol Content:</label>
+        <input placeholder="%" class="form-control" type="number" #newAlcohol>
+      </div>
+      <br>
+        <button (click)="
+        addClicked(newName.value, newBrand.value, newType.value, newPrice.value, newAlcohol.value);
+        newName.value = '';
+        newBrand.value = '';
+        newType.value = '';
+        newPrice.value = '';
+        newAlcohol.value = '';
+      " class="btn btn-primary pull-right">Add</button>
   `
 })
 

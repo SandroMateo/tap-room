@@ -5,20 +5,39 @@ import { Keg } from './keg.model';
   selector: 'my-app',
   template: `
   <div class="container">
-    <h1>Tap Room</h1>
+    <div class="jumbotron">
+      <h1 class="text-center">Tap Room</h1>
+      <div class="row">
+        <div class="col-md-6 well jumbo-wells">
+          <new-keg
+            (newKegSender)="addKeg($event)"
+          ></new-keg>
+        </div>
+        <div class="col-md-6 well jumbo-wells">
+          <div>
+            <keg-filter-display
+              [childTypeList]="allTypes"
+              (inventorySender)="selectInventory($event)"
+              (typeSender)="selectType($event)"
+            ></keg-filter-display>
+          </div>
+          <hr>
+          <div>
+            <keg-edit
+              [childSelectedKeg] = "selectedKeg"
+              (doneClickedSender)="finishedEditing()"
+            ></keg-edit>
+          </div>
+        </div>
+      </div>
+    </div>
     <keg-list
       [childKegList]="allKegs"
-      [childTypeList]="allTypes"
+      [childSelectedInventory]="selectedInventory"
+      [childSelectedType]="selectedType"
       (clickSender)="showDetails($event)"
     ></keg-list>
-    <hr>
-    <new-keg
-      (newKegSender)="addKeg($event)"
-    ></new-keg>
-    <keg-edit
-      [childSelectedKeg] = "selectedKeg"
-      (doneClickedSender)="finishedEditing()"
-    ></keg-edit>
+
   </div>
   `
 })
@@ -34,6 +53,9 @@ export class AppComponent {
   public allTypes: string[] = ["IPA", "Stout", "Lager", "Cider"];
 
   selectedKeg: Keg = null;
+  selectedInventory: string = "all";
+  selectedType: string = "all";
+
   showDetails(clickedKeg: Keg) {
     this.selectedKeg = clickedKeg;
   }
@@ -48,5 +70,13 @@ export class AppComponent {
       this.allTypes.push(newKegFromChild.type);
     }
     console.log(this.allKegs);
+  }
+
+  selectInventory(inventory: string) {
+    this.selectedInventory = inventory;
+  }
+
+  selectType(type: string) {
+    this.selectedType = type;
   }
 }

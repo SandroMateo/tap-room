@@ -1,0 +1,21 @@
+h1, h2, h3 {
+  font-family: 'Shrikhand', cursive;
+}
+
+.jumbo-wells {
+  height: 40%;
+  background: rgba(255,255,255,0.6);
+}
+
+.jumbotron {
+  background-image: url("../../resources/img/weiner-beer.jpeg");
+  background-size: cover;
+}
+
+.listedBeers {
+  background-color: rgba(170, 180, 190, 0.6);
+}
+
+body {
+  background: linear-gradient(0deg, white, indianred);
+}
